@@ -90,3 +90,36 @@
 .banner{
     width: 77%;
 }
+
+.tab_no_bg, .tab_original{
+    color: white;
+    font-size: 25px;
+    font-family: Aduma;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 96px 9px;
+    padding-right: 20px;
+}
+
+.tab_no_bg{
+    background-image:  url(./assets/Cleanup\ Edges.png);
+
+}
+
+
+.tab_original{
+    background-image:  url(./assets/Image.png);
+
+}
+
+.tabs_cont{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 12px;
+}
+
+.selected_tab{
+    border-bottom: 3px solid #9C27B0;
+}
