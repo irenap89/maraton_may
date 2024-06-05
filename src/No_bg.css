@@ -39,3 +39,9 @@
     left: 16px;
     opacity: 0;
 }
+
+.image{
+    position: absolute;
+    top: 87px;
+    width: 100%;
+}

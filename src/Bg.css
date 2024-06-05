@@ -123,3 +123,34 @@
 .selected_tab{
     border-bottom: 3px solid #9C27B0;
 }
+
+.eula{
+    background-color: #475366;
+    color: #ffffff85;
+    border: 0;
+    padding: 8px;
+    border-radius: 20px;
+    width: 128px;
+    margin-left: 11px;
+    text-align: right;
+    padding-right: 16px;
+    background-image: url(./assets/eula.png);
+     background-repeat: no-repeat;
+    background-position: 12px 8px;
+    margin-top: 13px;
+    cursor: pointer;
+}
+
+.footer_left_div{
+    position: relative;
+}
+
+
+.footer_left_div_text{
+    font-size: 12px;
+    color: #ffffff85;
+    text-align: right;
+    position: absolute;
+    right: 17px;
+    top: 20px;
+}

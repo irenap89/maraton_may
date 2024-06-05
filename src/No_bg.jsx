@@ -2,6 +2,7 @@
 import './No_bg.css';
 
 import React, { useRef } from 'react';
+import img_1 from './assets/img_1.png'
 
 function No_bg(props) {
     //props.comt_type
@@ -24,6 +25,9 @@ function No_bg(props) {
                     <input type="color" ref={inputElement}  className='color_input' />  
                 </div>
                 : <></>}
+
+
+                <img src={img_1}  className='image'/> 
        </div>
   );
 }

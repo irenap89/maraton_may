@@ -1,0 +1,35 @@
+
+.Download_file_popup_main{
+    background-color: white;
+    width: 800px;
+    height: 400px;
+    position: absolute;
+    top: 333px;
+    left: 560px;
+    border-radius: 15px;
+    z-index: 3;
+}
+
+
+.top_img{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    top: -40px;
+    background-color: white;
+    left: 346px;
+    box-shadow: 1px 1px 10px #9c27b080;
+    border-radius: 8px;
+    background-image: url(./assets/Downloads\ Folder.png);
+    background-repeat: no-repeat;
+    background-size: 77%;
+    background-position: 10px;
+}
+
+.Download_file_popup_text{
+    color: #043b98;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 21px;
+    font-family: 'Aduma';
+}

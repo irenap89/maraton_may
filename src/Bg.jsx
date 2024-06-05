@@ -6,8 +6,14 @@ import banner from './assets/banner.png'
 import logo from './assets/logo.png'
 import No_bg from './No_bg';
 import React, { useState } from 'react';
+import Eula from './Eula'
+import Download_file_popup from './Download_file_popup';
 
 function Bg() {
+
+  const [show_eula, setshow_eula] = useState(false);
+  const [show_download_popup, setshow_download_popup] = useState(false);
+
 
   const [selected_tab_no_bg, setselected_tab_no_bg] = useState('selected_tab');
   const [selected_tab_original, setselected_tab_original] = useState('');
@@ -22,8 +28,12 @@ function Bg() {
      }
   }
 
+  function show_eula_func(){
+    setshow_eula(true);
+  }
+
   return (
-   
+   <>
   <div className='bg_cont'>
         <img src={close_red} className='close_red'/>
 
@@ -36,7 +46,7 @@ function Bg() {
 
         <div className='middle_cont'>
           <div className='right_div'>
-              <Download_file title="תמונה חינם" top="top" sub_title="תצוגה מקדימה של תמונה" btn="הורד" small_text="איכות טובה עד 0.25 מגה פיקסל"></Download_file>
+              <Download_file setshow_download_popup={setshow_download_popup} title="תמונה חינם" top="top" sub_title="תצוגה מקדימה של תמונה" btn="הורד" small_text="איכות טובה עד 0.25 מגה פיקסל"></Download_file>
               <Download_file title="Pro"  top="bottom"  sub_title="תמונה מלאה"  btn=" HD הורד"  small_text="האיכות הטובה ביותר עד 25 מגה פיקסל"></Download_file>
           </div>
 
@@ -48,6 +58,13 @@ function Bg() {
 
 
                 {selected_tab_no_bg == 'selected_tab' ? <No_bg comt_type="no_bg"></No_bg> :<No_bg comt_type="original"></No_bg>}
+
+                <div className='footer_left_div'>
+                    <div className='footer_left_div_text'> על ידי העלאת תמונה אתה מסכים לתנאים וההגבלות. גכלחעגלחיעמ </div>
+
+                    <button className='eula'  onClick={show_eula_func}> תקנון החברה </button>
+                </div>
+
           </div>
 
         </div>
@@ -58,8 +75,15 @@ function Bg() {
           <img src={logo} />
         </div>
 
+      
+
   </div>
-  
+
+  {show_eula? <Eula close_popup_func={setshow_eula} ></Eula>: <></>}
+
+  {show_download_popup? <Download_file_popup setshow_download_popup={setshow_download_popup} ></Download_file_popup>: <></>}
+
+  </>
   );
 }
 
