@@ -5,18 +5,24 @@ import Download_file  from './Download_file';
 import banner from './assets/banner.png'
 import logo from './assets/logo.png'
 import No_bg from './No_bg';
-import React, { useState } from 'react';
+import React, { useState ,useRef } from 'react';
+
 import Eula from './Eula'
 import Download_file_popup from './Download_file_popup';
+import axios from 'axios';
+
 
 function Bg() {
-
+  const inputElement = useRef();
   const [show_eula, setshow_eula] = useState(false);
   const [show_download_popup, setshow_download_popup] = useState(false);
 
 
   const [selected_tab_no_bg, setselected_tab_no_bg] = useState('selected_tab');
   const [selected_tab_original, setselected_tab_original] = useState('');
+
+  const [file_err, setfile_err] = useState('');
+
 
   function update_tab_no_bg(e){
      if (e.target.className == 'tab_no_bg ' || e.target.className =='tab_no_bg selected_tab') {
@@ -28,9 +34,60 @@ function Bg() {
      }
   }
 
+
   function show_eula_func(){
     setshow_eula(true);
   }
+
+  const fileInput = () => {
+    inputElement.current.click();
+  };
+
+
+  function upload_file(e){
+    let file = e.target.files[0]
+    console.log(file);
+
+     if(file.size<=1000000 && (file.type=='image/png' || file.type=='image/jepg' || file.type=='image/jpg') ){
+
+debugger;
+
+        let formData = new FormData();    //formdata object
+
+        formData.append('name', 'ABC');   //append the values with key, value pair
+        formData.append('age', 20);
+
+        formData.append('file', file);
+
+
+        axios({
+          method: 'post',
+          url: 'http://localhost:5000/upload_img',
+          data: formData, 
+          headers: {
+           // 'Authorization': `bearer ${token}`,
+          'Content-Type':  'multipart/form-data' 
+          }, 
+        }).then(function (response) {
+          // handle success
+          console.log(response);
+        })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+
+
+
+
+
+     } else {
+      setfile_err('קובץ לא נתמך');
+     }
+
+    
+  }
+
 
   return (
    <>
@@ -41,7 +98,9 @@ function Bg() {
             <div className='header_title'> העלאת תמונה כדי להסיר את הרקע </div>
 
             <div className='header_formats'> פורמטים נתמכים: png, jpeg </div>
-            <button className='upload_img_btn'> העלאת תמונה </button>
+            <button className='upload_img_btn' onClick={fileInput}> העלאת תמונה </button>
+            <input type="file" ref={inputElement} className='inputFileClass'   onChange={upload_file}/>
+          <div className='file_err'> {file_err}</div> 
         </div>
 
         <div className='middle_cont'>

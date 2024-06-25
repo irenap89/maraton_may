@@ -3,11 +3,12 @@
     background-color: white;
     width: 800px;
     height: 400px;
-    position: absolute;
-    top: 333px;
-    left: 560px;
+    position: relative;
+    top: -654px;
     border-radius: 15px;
     z-index: 3;
+    margin: 0 auto;
+    display: block;
 }
 
 
