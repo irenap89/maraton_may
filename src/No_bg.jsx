@@ -26,8 +26,7 @@ function No_bg(props) {
                 </div>
                 : <></>}
 
-
-                <img src={img_1}  className='image'/> 
+                <img src={props.file_name}  className='image'/> 
        </div>
   );
 }
