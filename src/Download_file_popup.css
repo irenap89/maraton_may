@@ -34,3 +34,62 @@
     margin-top: 21px;
     font-family: 'Aduma';
 }
+
+.Download_file_popup_subtext{
+    text-align: center;
+    direction: rtl;
+    color: #043b98;
+    margin-top: 17px;
+    font-size: 20px;
+}
+
+.not_robot_cont{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-right: 220px;
+    margin-top: 50px;
+}
+
+.not_robot_img{
+    width: 15px;
+    height: 15px;
+    margin-top: 4px;
+    margin-right: 36px;
+}
+
+.not_robot{
+    font-size: 13px;
+    color: #043b98;
+}
+
+.approve_btn{
+    background: linear-gradient(45deg, #9C27B0, #03A9F4);
+    width: 200px;
+    height: 34px;
+    border: 0;
+    border-radius: 22px;
+    color: white;
+    font-family: 'Aduma';
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.btn_cont{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 66px;
+}
+
+.cancel_btn{
+    width: 150px;
+    height: 35px;
+    border: 1px solid #043b98;
+    background-color: transparent;
+    border-radius: 20px;
+    color: #043b98;
+    font-family: 'Aduma';
+    font-size: 19px;
+    cursor: pointer;
+}

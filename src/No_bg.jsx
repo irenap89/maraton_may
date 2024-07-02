@@ -1,12 +1,13 @@
 
 import './No_bg.css';
 
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
+
 import img_1 from './assets/img_1.png'
 
 function No_bg(props) {
     //props.comt_type
-
+    const [color, setcolor] = useState('');
     const inputElement = useRef();
 
     const focusInput = () => {
@@ -21,8 +22,8 @@ function No_bg(props) {
                 <div>
                     <div className='no_bg_cont_text'> אל תשכח להוריד את הקבצים. הם ימחקו אוטומטית כשתצא מהדף </div>
 
-                    <div className='bg_color' onClick={focusInput}> צבע רקע</div>
-                    <input type="color" ref={inputElement}  className='color_input' />  
+                    <div className='bg_color' onClick={focusInput}> צבע רקע <div className='color_disp' style={{ backgroundColor: color? color: 'transparent'}} > </div></div>
+                    <input type="color" ref={inputElement}  className='color_input' onChange={(e)=>{ props.colorfunc(e.target.value);setcolor(e.target.value) }}/>  
                 </div>
                 : <></>}
 

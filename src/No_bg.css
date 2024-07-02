@@ -45,3 +45,12 @@
     top: 87px;
     width: 100%;
 }
+
+.color_disp{
+    background-color: rgb(11, 167, 234);
+    height: 28px;
+    width: 30px;
+    margin-top: -26px;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}

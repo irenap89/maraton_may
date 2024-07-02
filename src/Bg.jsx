@@ -27,6 +27,11 @@ function Bg() {
   const [file_name_original, setfile_name_original] = useState('');
 
 
+  const [show_loader, setshow_loader] = useState(false);
+
+  const [color, setcolor] = useState('');
+
+
   function update_tab_no_bg(e) {
     if (e.target.className == 'tab_no_bg ' || e.target.className == 'tab_no_bg selected_tab') {
       setselected_tab_no_bg('selected_tab');
@@ -51,14 +56,16 @@ function Bg() {
     let file = e.target.files[0]
     console.log(file);
 
+    console.log(color);
+  
     if (file.size <= 1000000 && (file.type == 'image/png' || file.type == 'image/jepg' || file.type == 'image/jpg')) {
 
-      debugger;
+      setshow_loader(true);
 
       let formData = new FormData();
       let server_url = 'http://localhost:5000/';
 
-      // formData.append('color', 20);
+      formData.append('color', color);
 
       formData.append('file', file);
 
@@ -74,6 +81,7 @@ function Bg() {
 
         setfile_name_no_bg(server_url+'no_bg_' + response.data);
 
+        setshow_loader(false);
         console.log(response);
       })
         .catch(function (error) {
@@ -117,7 +125,7 @@ function Bg() {
             </div>
 
 
-            {selected_tab_no_bg == 'selected_tab' ? <No_bg comt_type="no_bg" file_name={file_name_no_bg}></No_bg> : <No_bg comt_type="original" file_name={file_name_original}></No_bg>}
+            {selected_tab_no_bg == 'selected_tab' ? <No_bg comt_type="no_bg"  colorfunc={setcolor} file_name={file_name_no_bg}></No_bg> : <No_bg comt_type="original" file_name={file_name_original}></No_bg>}
 
             <div className='footer_left_div'>
               <div className='footer_left_div_text'> על ידי העלאת תמונה אתה מסכים לתנאים וההגבלות. גכלחעגלחיעמ </div>
@@ -138,6 +146,10 @@ function Bg() {
 
 
       </div>
+
+     {show_loader? <div className='loader'> 
+          <div className='loader_in'> 39% </div>
+      </div>: <></>}
 
       {show_eula ? <Eula close_popup_func={setshow_eula} ></Eula> : <></>}
 

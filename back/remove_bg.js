@@ -6,12 +6,15 @@ const fs = require('fs');
 const path = require('path');
 
 
-module.exports = async function remove_bg(file_name) {
-
+module.exports = async function remove_bg(file_name,color) {
+    const Key_api = 'iTk3KX5SzD6djvEb6Mgd9DSu';
     console.log('sdfgsdfgsdfg');
     const inputPath = __dirname + '/upload_img/' + file_name;
     const formData = new FormData();
     formData.append('size', 'auto');
+    
+    formData.append('bg_color', color);
+
     formData.append('image_file', fs.createReadStream(inputPath), path.basename(inputPath));
 
     await axios({
@@ -21,7 +24,7 @@ module.exports = async function remove_bg(file_name) {
     responseType: 'arraybuffer',
     headers: {
         ...formData.getHeaders(),
-        'X-Api-Key': 'iTk3KX5SzD6djvEb6Mgd9DSu',
+        'X-Api-Key': Key_api,
     },
     encoding: null
     })

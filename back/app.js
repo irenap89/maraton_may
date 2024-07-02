@@ -15,6 +15,8 @@ app.use(fileupload());
 app.post('/upload_img', function (req, res) {
   
     let date = new Date();
+    let color = req.body.color;
+
     let file_name = date.getTime() +'_'+ req.files.file.name;
 
     let file =  req.files.file;
@@ -23,7 +25,7 @@ app.post('/upload_img', function (req, res) {
         if(err){
             console.log(err);
         }else{
-           await remove_bg(file_name);
+           await remove_bg(file_name, color);
            res.send(file_name);
         }
 

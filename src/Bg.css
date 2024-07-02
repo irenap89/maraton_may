@@ -168,3 +168,24 @@
     position: absolute;
     left: 50px;
 }
+
+.loader{
+    border: 1px solid #000000;
+    width: 255px;
+    height: 20px;
+    position: relative;
+    top: -465px;
+    margin: 0 auto;
+    left: -123px;
+    box-shadow: 1px 1px 10px #ffffff78;
+    line-height: 20px;
+}
+
+.loader_in{
+    background: linear-gradient(86deg, #9C27B0, #00BCD4);
+    width: 39%;
+    height: 20px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+}
