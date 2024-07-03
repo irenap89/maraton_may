@@ -25,8 +25,8 @@ function Bg() {
 
   const [file_name_no_bg, setfile_name_no_bg] = useState('');
   const [file_name_original, setfile_name_original] = useState('');
-
-
+  const [file_name_no_bg_name_only, setfile_name_no_bg_name_only] = useState('');
+  
   const [show_loader, setshow_loader] = useState(false);
 
   const [color, setcolor] = useState('');
@@ -80,6 +80,7 @@ function Bg() {
         setfile_name_original(server_url + response.data);
 
         setfile_name_no_bg(server_url+'no_bg_' + response.data);
+        setfile_name_no_bg_name_only('no_bg_' + response.data);
 
         setshow_loader(false);
         console.log(response);
@@ -153,7 +154,7 @@ function Bg() {
 
       {show_eula ? <Eula close_popup_func={setshow_eula} ></Eula> : <></>}
 
-      {show_download_popup ? <Download_file_popup setshow_download_popup={setshow_download_popup} ></Download_file_popup> : <></>}
+      {show_download_popup ? <Download_file_popup file_name={file_name_no_bg_name_only} setshow_download_popup={setshow_download_popup} ></Download_file_popup> : <></>}
 
     </>
   );

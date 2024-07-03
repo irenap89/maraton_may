@@ -3,12 +3,13 @@
     background-color: white;
     width: 800px;
     height: 400px;
-    position: relative;
-    top: -654px;
+    position: absolute;
+    top: 354px;
     border-radius: 15px;
     z-index: 3;
     margin: 0 auto;
     display: block;
+    left: 27%;
 }
 
 
@@ -92,4 +93,11 @@
     font-family: 'Aduma';
     font-size: 19px;
     cursor: pointer;
+}
+
+.err_not_robot{
+    text-align: center;
+    color: red;
+    font-size: 13px;
+    margin-top: 15px;
 }

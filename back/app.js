@@ -5,12 +5,13 @@ const remove_bg =  require('./remove_bg');
 
 const app = express()
 
+app.use(cors())
+app.use(fileupload());
+
 app.use(express.static('no_bg_img'));
 app.use(express.static('upload_img'));
 
 
-app.use(cors())
-app.use(fileupload());
 
 app.post('/upload_img', function (req, res) {
   

@@ -8,7 +8,7 @@ const path = require('path');
 
 module.exports = async function remove_bg(file_name,color) {
     const Key_api = 'iTk3KX5SzD6djvEb6Mgd9DSu';
-    console.log('sdfgsdfgsdfg');
+
     const inputPath = __dirname + '/upload_img/' + file_name;
     const formData = new FormData();
     formData.append('size', 'auto');
